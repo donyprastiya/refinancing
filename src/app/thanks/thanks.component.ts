@@ -12,4 +12,10 @@ export class ThanksComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  close_window() {
+    window.open('', '_self', '')
+    window.close();
+  }
+  
+
 }

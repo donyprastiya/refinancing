@@ -8,6 +8,9 @@ import { SimulasiComponent } from './simulasi/simulasi.component';
 import { FormComponent } from './form/form.component';
 import { ThanksComponent } from './thanks/thanks.component';
 import { DetailhitunganComponent } from './detailhitungan/detailhitungan.component';
+import { KontrakComponent } from './kontrak/kontrak.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,15 @@ import { DetailhitunganComponent } from './detailhitungan/detailhitungan.compone
     SimulasiComponent,
     FormComponent,
     ThanksComponent,
-    DetailhitunganComponent
+    DetailhitunganComponent,
+    KontrakComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

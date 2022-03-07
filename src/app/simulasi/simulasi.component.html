@@ -8,7 +8,7 @@
         <img src="/assets/img/logo.png" class="p-3" style="height: 200px; width: 200px;">
     </div>
     <div style="background-color: white; text-align: center; font-size: small;">
-        <label for="">Perhtungan simulasi kredit per : Jumat, 18 Februari 2022</label>
+        <label for="">Perhtungan simulasi kredit per : {{time}}</label>
     </div>
     <div class="mt-3">
         <label for="">Pilih masa tenor</label>
@@ -24,41 +24,56 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1 thn</td>
-                    <td>Rp 100.000.000</td>
-                    <td>Rp 10.000.000</td>
-                    <td><i class="fa fa-angle-right"></i></td>
+                <tr *ngIf="simulasi12">
+                    <td>{{simulasi12.tenor}} bulan</td>
+                    <td>{{simulasi12.danaCairMinET | currency:'Rp ':'symbol':'3.0'}}</td>
+                    <td>{{simulasi12.angsuran | currency:'Rp ':'symbol':'3.0'}}</td>
+                    <a [routerLink]="['/form', pilihAsuransi, simulasi12.tenor]" style="color: black;">
+                        <td>
+                            <!-- <i class="fa fa-angle-right"></i> -->
+                            <button type="button" class="btn btn-primary btn-sm" style="background-color: #3E4095; color: white;">Pilih</button>
+                        </td>
+                    </a>
                 </tr>
-                <tr>
-                    <td>2 thn</td>
-                    <td>Rp 100.000.000</td>
-                    <td>Rp 10.000.000</td>
-                    <td><i class="fa fa-angle-right"></i></td>
+                <tr *ngIf="simulasi24">
+                    <td>{{simulasi24.tenor}} bulan</td>
+                    <td>{{simulasi24.danaCairMinET | currency:'Rp ':'symbol':'3.0'}}</td>
+                    <td>{{simulasi24.angsuran | currency:'Rp ':'symbol':'3.0'}}</td>
+                    <a [routerLink]="['/form', pilihAsuransi, simulasi24.tenor]" style="color: black;">
+                        <td>
+                            <!-- <i class="fa fa-angle-right"></i> -->
+                            <button type="button" class="btn btn-primary btn-sm" style="background-color: #3E4095; color: white;">Pilih</button>
+                        </td>
+                    </a>
                 </tr>
-                <tr>
-                    <td>3 thn</td>
-                    <td>Rp 100.000.000</td>
-                    <td>Rp 10.000.000</td>
-                    <td><i class="fa fa-angle-right"></i></td>
+                <tr *ngIf="simulasi36">
+                    <td>{{simulasi36.tenor}} bulan</td>
+                    <td>{{simulasi36.danaCairMinET | currency:'Rp ':'symbol':'3.0'}}</td>
+                    <td>{{simulasi36.angsuran | currency:'Rp ':'symbol':'3.0'}}</td>
+                    <a [routerLink]="['/form', pilihAsuransi, simulasi36.tenor]" style="color: black;">
+                        <td>
+                            <!-- <i class="fa fa-angle-right"></i> -->
+                            <button type="button" class="btn btn-primary btn-sm" style="background-color: #3E4095; color: white;">Pilih</button>
+                        </td>
+                    </a>
                 </tr>
-                <tr>
-                    <td>4 thn</td>
-                    <td>Rp 100.000.000</td>
-                    <td>Rp 10.000.000</td>
-                    <td><i class="fa fa-angle-right"></i></td>
+                <tr *ngIf="simulasi48">
+                    <td>{{simulasi48.tenor}} bulan</td>
+                    <td>{{simulasi48.danaCairMinET | currency:'Rp ':'symbol':'3.0'}}</td>
+                    <td>{{simulasi48.angsuran | currency:'Rp ':'symbol':'3.0'}}</td>
+                    <a [routerLink]="['/form', pilihAsuransi, simulasi48.tenor]" style="color: black;">
+                        <td>
+                            <!-- <i class="fa fa-angle-right"></i> -->
+                            <button type="button" class="btn btn-primary btn-sm" style="background-color: #3E4095; color: white;">Pilih</button>
+                        </td>
+                    </a>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="" style="position: fixed; bottom: 0; left: 0;">
-        <div class="text-center p-1 d-grid gap-2 mt-3">
-            <a routerLink="/detail">
-                <button type="button" class="btn form-control" style="background-color: #3E4095; color: white;">SUBMIT</button>
-            </a>
-        </div>
         <div class="text-center mb-3 p-1 d-grid gap-2">
-            <a routerLink="/datakendaraan">
+            <a [routerLink]="['/datakendaraan', kontrak]">
                 <button type="button" class="btn btn-secondary form-control">KEMBALI</button>
             </a>
         </div>

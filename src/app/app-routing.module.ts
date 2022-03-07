@@ -3,16 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailhitunganComponent } from './detailhitungan/detailhitungan.component';
 import { FormComponent } from './form/form.component';
 import { KendaraanComponent } from './kendaraan/kendaraan.component';
+import { KontrakComponent } from './kontrak/kontrak.component';
 import { SimulasiComponent } from './simulasi/simulasi.component';
 import { ThanksComponent } from './thanks/thanks.component';
 
 const routes: Routes = [
-  { path: 'datakendaraan', component: KendaraanComponent },
-  { path: 'simulasi', component: SimulasiComponent },
-  { path: 'form', component: FormComponent },
+  { path: 'kontrak', component: KontrakComponent },
+  { path: 'datakendaraan/:kontrak', component: KendaraanComponent },
+  { path: 'simulasi/:id', component: SimulasiComponent },
+  { path: 'form/:asuransi/:tenor', component: FormComponent },
   { path: 'thanks', component: ThanksComponent },
-  { path: 'detail', component: DetailhitunganComponent },
-  { path: '', redirectTo: 'datakendaraan', pathMatch: 'full' }
+  { path: 'detail/:id', component: DetailhitunganComponent },
+  { path: '', redirectTo: 'kontrak', pathMatch: 'full' }
 ];
 
 @NgModule({
