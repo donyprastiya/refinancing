@@ -8,23 +8,53 @@
         <img src="/assets/img/logo.png" class="p-3" style="height: 200px; width: 200px;">
     </div>
     <div class="text-center mt-1" *ngFor="let listKontrak of kontrak">
-        <a [routerLink]="['/datakendaraan', listKontrak.no_kontrak]" style="text-decoration: none;">
+        <a [routerLink]="['/datakendaraan', listKontrak.no_kontrak]" style="text-decoration: none;" *ngIf="listKontrak.tenor/3 >= listKontrak.sisa_tenor && listKontrak.status_pengajuan == 'NULL'">
+
             <div class="card">
                 <div class="card-body">
-                    <a style="text-decoration: none;">
-                        <div class="mb-1" style="margin-bottom: 5px; background-color: white; padding: 5px;">
-                            <div class="row">
-                                <div class="col-2 pt-3 ps-4">
-                                    <i class="fa fa-car"></i>
-                                </div>
-                                <div class="col-6">
-                                    <h4 style="font-size: medium;">{{listKontrak.no_kontrak}}</h4>
-                                    <span style="text-align: left;">{{listKontrak.merk}} - {{listKontrak.type}}</span>
-                                </div>
-                                <div class="col-4" style="font-size: 12px;text-align: right;">{{listKontrak.no_polisi}}</div>
+                    <div class="mb-1" style="margin-bottom: 5px; background-color: white; padding: 5px;">
+                        <div class="row">
+                            <div class="col-2 pt-3 ps-4">
+                                <i class="fa fa-car"></i>
+                            </div>
+                            <div class="col-6 mb-2">
+                                <h4 style="font-size: medium;">{{listKontrak.no_kontrak}}</h4>
+                                <span style="text-align: left;">{{listKontrak.merk}} - {{listKontrak.type}}</span>
+                            </div>
+                            <div class="col-4" style="font-size: 12px;text-align: right;">{{listKontrak.no_polisi}}</div>
+                            <div *ngIf="listKontrak.status_pengajuan != 'NULL'" class="alert alert-success" style="font-size:small;">
+                                <i class="fa fa-check-circle" style="margin-right: 5px;"></i> {{listKontrak.status_pengajuan}}
+                                <!-- <br>
+                                    <br> No. Pengajuan : OVK2022-{{showId(listKontrak.no_kontrak)}} -->
                             </div>
                         </div>
-                    </a>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+        <a style="text-decoration: none;" *ngIf="listKontrak.tenor/3 >= listKontrak.sisa_tenor && listKontrak.status_pengajuan != 'NULL'">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-1" style="margin-bottom: 5px; background-color: white; padding: 5px;">
+                        <div class="row">
+                            <div class="col-2 pt-3 ps-4">
+                                <i class="fa fa-car"></i>
+                            </div>
+                            <div class="col-6 mb-2">
+                                <h4 style="font-size: medium;">{{listKontrak.no_kontrak}}</h4>
+                                <span style="text-align: left;">{{listKontrak.merk}} - {{listKontrak.type}}</span>
+                            </div>
+                            <div class="col-4" style="font-size: 12px;text-align: right;">{{listKontrak.no_polisi}}</div>
+                            <div *ngIf="listKontrak.status_pengajuan != 'NULL'" class="alert alert-success" style="font-size:small;">
+                                <i class="fa fa-check-circle" style="margin-right: 5px;"></i> {{listKontrak.status_pengajuan}}
+                                <!-- <br>
+                                    <br> No. Pengajuan : OVK2022-{{showId(listKontrak.no_kontrak)}} -->
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </a>

@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'simulasi/:id', component: SimulasiComponent },
   { path: 'form/:asuransi/:tenor', component: FormComponent },
   { path: 'thanks', component: ThanksComponent },
-  { path: 'detail/:id', component: DetailhitunganComponent },
+  { path: 'detail', component: DetailhitunganComponent },
   { path: '', redirectTo: 'kontrak', pathMatch: 'full' }
 ];
 

@@ -11,21 +11,21 @@
         <form [formGroup]="konsumenForm" (ngSubmit)="this.addBookingForm()">
             <label for="">Isi Data</label>
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" formControlName="konsumen_nama" placeholder="name@example.com">
+                <input type="text" class="form-control" id="floatingInput" formControlName="konsumen_nama" ngModel="{{nama}}">
                 <label for="">Nama lengkap</label>
                 <span style="color: red;" *ngIf="konsumen_nama && konsumen_nama.touched && konsumen_nama.invalid">
                     Nama tidak boleh kosong!
                 </span>
             </div>
             <div class="form-floating mb-2">
-                <input type="tel" class="form-control" id="floatingInput" formControlName="konsumen_noHP" placeholder="081...">
+                <input type="tel" class="form-control" id="floatingInput" formControlName="konsumen_noHP" ngModel="{{alamat}}">
                 <label for="">No telfon</label>
                 <span style="color: red;" *ngIf="konsumen_noHP && konsumen_noHP.touched && konsumen_noHP.invalid">
                     No telfon tidak boleh kosong!
                 </span>
             </div>
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" formControlName="konsumen_alamat" placeholder="081...">
+                <input type="text" class="form-control" id="floatingInput" formControlName="konsumen_alamat" ngModel="{{nohp}}">
                 <label for="">Alamat lengkap</label>
                 <span style="color: red;" *ngIf="konsumen_alamat && konsumen_alamat.touched && konsumen_alamat.invalid">
                     Alamat tidak boleh kosong!

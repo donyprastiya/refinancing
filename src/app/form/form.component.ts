@@ -18,6 +18,11 @@ export class FormComponent implements OnInit {
   tenor:number = this.actRoute.snapshot.params['tenor'];
   otr:number = this.storageService.getOTR()
   sisa:number = this.storageService.getData().sisa_outstanding
+  kontrak:string = this.storageService.getData().no_kontrak
+  isi:any
+  nama:any
+  alamat:any
+  nohp:any
 
   
   konsumenForm = new FormGroup({
@@ -48,6 +53,9 @@ export class FormComponent implements OnInit {
     .subscribe((res:any)=>{
       this.simulasi=res
       this.storageService.saveSimulasi(res)
+      this.nama = this.storageService.getData().nama_komsumen
+      this.alamat = this.storageService.getData().alamat
+      this.nohp = this.storageService.getData().nohp
       console.log(this.simulasi);
     })
   }
@@ -90,9 +98,10 @@ export class FormComponent implements OnInit {
     const totalPotongan = this.storageService.getSimulasi().totalPotongan
     const danaCair = this.storageService.getSimulasi().danaCair
     const danaCairMinET = this.storageService.getSimulasi().danaCairMinET
+    const waktu_booking = this.storageService.getDateTime()
 
     
-    return this.dataService.addBooking(konsumen_nokontrak, konsumen_nama, konsumen_noHP, konsumen_alamat, otr, tenor, jenisAsuransi, dpPersen, dp, phAwal, rateAsuransi, asuransi, bungaFlat, bungaJual, tph, angsuran, provisiAdmin, fidusia, cp, potongan, totalPotongan, danaCair, danaCairMinET)
+    return this.dataService.addBooking(konsumen_nokontrak, konsumen_nama, konsumen_noHP, konsumen_alamat, waktu_booking, otr, tenor, jenisAsuransi, dpPersen, dp, phAwal, rateAsuransi, asuransi, bungaFlat, bungaJual, tph, angsuran, provisiAdmin, fidusia, cp, potongan, totalPotongan, danaCair, danaCairMinET)
     .subscribe(
       data => {
         console.log(data)
@@ -103,6 +112,8 @@ export class FormComponent implements OnInit {
       }
     )
   }
+
+  
 
   gotoThanks(){
     this.router.navigate(['/thanks'])

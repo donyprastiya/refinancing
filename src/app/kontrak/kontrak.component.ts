@@ -12,6 +12,7 @@ export class KontrakComponent implements OnInit {
 
   kontrak : any
   data:any
+  show:any
 
   constructor(private dataService : DataService, private actRoute : ActivatedRoute, private storageService : StorageService) { }
 
@@ -23,6 +24,7 @@ export class KontrakComponent implements OnInit {
     return this.dataService.showListKontrak("dpn330@gmail.com")
       .subscribe((res:any)=>{
         this.kontrak = res
+        
       })
   }
 
@@ -33,5 +35,12 @@ export class KontrakComponent implements OnInit {
         this.storageService.saveData(res)
         console.log(this.data)
     })
+  }
+
+  showId(kontrak:string){
+    return this.dataService.getbykontrak(kontrak)
+    .subscribe((res:any)=>{
+      this.show = res
+  })
   }
 }

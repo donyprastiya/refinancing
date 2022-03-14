@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const DATA = 'data-key';
 const OTR = 'otr-key';
 const SIMULASI = 'simulasi-key';
+const DATETIME = 'datetime-key';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,21 @@ export class StorageService {
     const simulasi = window.sessionStorage.getItem(SIMULASI);
     if (simulasi) {
       return JSON.parse(simulasi);
+    }
+
+    return {};
+  }
+
+  public saveDateTime(datetime: string): void {
+    window.sessionStorage.clear
+    window.sessionStorage.removeItem(DATETIME);
+    window.sessionStorage.setItem(DATETIME, JSON.stringify(datetime));
+  }
+
+  public getDateTime(): any {
+    const datetime = window.sessionStorage.getItem(DATETIME);
+    if (datetime) {
+      return JSON.parse(datetime);
     }
 
     return {};

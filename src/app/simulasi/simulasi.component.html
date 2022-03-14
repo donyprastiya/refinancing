@@ -71,11 +71,34 @@
             </tbody>
         </table>
     </div>
+    <!-- <div>
+        <form [formGroup]="simulasiForm">
+            <label for="">Masukan dana cair sesuai kebutuhan anda</label>
+            <div class="form-floating mb-1">
+                <input type="number" class="form-control" id="floatingInput" formControlName="getnominal">
+                <label for="">Nominal</label>
+            </div>
+            <div class="form-floating mb-1">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" #tenor (change)="dataSimulasiNew(tenor.value)">
+              <option value=12>12 bulan</option>
+              <option value=24>24 bulan</option>
+              <option value=36>36 bulan</option>
+              <option value=48>48 bulan</option>
+            </select>
+                <label for="floatingSelect">Tenor</label>
+            </div>
+        </form>
+        <div class="form-floating mb-1">
+            <input type="text" class="form-control" id="floatingInput" placeholder="081..." ngModel="{{simulasiNew | currency:'Rp ':'symbol':'3.0'}}">
+            <label for="">Angsuran</label>
+        </div>
+
+    </div>
     <div class="" style="position: fixed; bottom: 0; left: 0;">
         <div class="text-center mb-3 p-1 d-grid gap-2">
             <a [routerLink]="['/datakendaraan', kontrak]">
                 <button type="button" class="btn btn-secondary form-control">KEMBALI</button>
             </a>
         </div>
-    </div>
+    </div> -->
 </div>
