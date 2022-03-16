@@ -8,7 +8,9 @@
         <img src="/assets/img/logo.png" class="p-3" style="height: 200px; width: 200px;">
     </div>
     <div style="background-color: white; text-align: center; font-size: small;">
-        <label for="">Perhtungan simulasi kredit per : {{time}}</label>
+        <label for="">Perhitungan simulasi kredit per : {{time}}</label>
+        <label for="">Dengan estimasi penyusutan harga mobil </label>
+        <label for="">menjadi {{otr | currency:'Rp ':'symbol':'3.0'}} dan uang muka 30%</label>
     </div>
     <div class="mt-3">
         <label for="">Pilih masa tenor</label>
@@ -71,6 +73,10 @@
             </tbody>
         </table>
     </div>
+    <div style="background-color: white; text-align: center; font-size: small;">
+        <label for="">Silakan pilih tenor ynag ingin di ajukan</label>
+        <label for="">*dana cair dan angsuran dari simulasi pehitungan refinancing top up masih berupa estimasi yang dapat berubah</label>
+    </div>
     <!-- <div>
         <form [formGroup]="simulasiForm">
             <label for="">Masukan dana cair sesuai kebutuhan anda</label>
@@ -101,4 +107,12 @@
             </a>
         </div>
     </div> -->
+    <div class="col-12 p-3" style="position: fixed; bottom: 0; left: 0;">
+
+        <div class="text-center  d-grid gap-2">
+            <a [routerLink]="['/datakendaraan', kontrak]">
+                <button type="button" class="btn btn-secondary form-control">KEMBALI</button>
+            </a>
+        </div>
+    </div>
 </div>
